@@ -13,12 +13,36 @@ const RecipeSchema = new mongoose.Schema({
     type: String,
     require: true,
   },
-  ingredients: {
+  petType: {
     type: String,
     required: true,
   },
-  directions: {
+  breed: {
     type: String,
+    required: true,
+  },
+  gender: {
+    type: String,
+    required: true,
+  },
+  vaccinated: {
+    type: String,
+    required: true,
+  },
+  costAdoption: {
+    type: Number,
+    required: true,
+  },
+  costSponsor: {
+    type: Number,
+    required: true,
+  },
+  neutered: {
+    type: Boolean,
+    required: true,
+  },
+  location: {
+    type: Number,
     required: true,
   },
   likes: {
@@ -36,4 +60,4 @@ const RecipeSchema = new mongoose.Schema({
 });
 
 //MongoDB Collection named here - will give lowercase plural of name 
-module.exports = mongoose.model("Recipe", RecipeSchema);
+module.exports = mongoose.model("Pet", PetSchema);
