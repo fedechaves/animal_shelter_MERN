@@ -1,18 +1,26 @@
 const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
 
-const UserSchema = new mongoose.Schema({
+const ShelterSchema = new mongoose.Schema({
   userName: { type: String, unique: true },
   email: { type: String, unique: true },
   password: { type: String},
   name: { type: String},
+  image: {
+    type: String,
+    require: true,
+  },
+  cloudinaryId: {
+    type: String,
+    require: true,
+  },
   city: { type: String},
   Phone: { type: Number},
 });
 
 // Password hash middleware.
 
-UserSchema.pre("save", function save(next) {
+ShelterSchema.pre("save", function save(next) {
   const user = this;
   if (!user.isModified("password")) {
     return next();
@@ -33,7 +41,7 @@ UserSchema.pre("save", function save(next) {
 
 // Helper method for validating user's password.
 
-UserSchema.methods.comparePassword = function comparePassword(
+ShelterSchema.methods.comparePassword = function comparePassword(
   candidatePassword,
   cb
 ) {
@@ -42,4 +50,4 @@ UserSchema.methods.comparePassword = function comparePassword(
   });
 };
 
-module.exports = mongoose.model("User", UserSchema);
+module.exports = mongoose.model("Shelter", ShelterSchema);
