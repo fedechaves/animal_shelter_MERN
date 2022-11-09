@@ -15,7 +15,8 @@ const ShelterSchema = new mongoose.Schema({
     require: true,
   },
   city: { type: String},
-  Phone: { type: Number},
+  phone: { type: Number},
+  shelter: { type: Boolean},
 });
 
 // Password hash middleware.

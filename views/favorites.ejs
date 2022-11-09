@@ -10,13 +10,13 @@
           
       <div class="col-6">
         <ul class="row list-unstyled">
-        <% for(var i=0; i<recipes.length; i++) {%>
+        <% for(var i=0; i<pets.length; i++) {%>
           <li class="col-6 justify-content-between mt-5">
-            <a href="/recipe/<%= recipes[i].recipe._id%>">
-              <h2><%= recipes[i].recipe.name%></h2>
-              <img class="img-fluid" src="<%= recipes[i].recipe.image%>">
-              <p><%= recipes[i].recipe.ingredients%></p>
-              <p><%= recipes[i].recipe.directions%></p>
+            <a href="/recipe/<%= pets[i].pet._id%>">
+              <h2><%= pets[i].pet.name%></h2>
+              <img class="img-fluid" src="<%= pets[i].pet.image%>">
+              <p><%= pets[i].pet.breed%></p>
+              <p><%= pets[i].pet.gender%></p>
             </a>
           </li>
         <% } %>

@@ -52,6 +52,11 @@ module.exports = {
       //media is stored on cloudainary - the above request responds with url to media and the media id that you will need when deleting content 
       await Pet.create({
         name: req.body.name,
+        petType: req.body.petType,
+        breed: req.body.breed,
+        gender: req.body.gender,
+        vaccinated: req.body.vaccinated,
+        name: req.body.name,
         image: result.secure_url,
         cloudinaryId: result.public_id,
         ingredients: req.body.ingredients,
@@ -106,4 +111,13 @@ module.exports = {
       res.redirect("/profile");
     }
   },
+
+  getFeed: async (req, res) => {
+    try {
+      const posts = await Pet.find().sort({ createdAt: "desc" }).lean();
+      res.render("feed.ejs", { pets: pets });
+    } catch (err) {
+      console.log(err);
+    }
+  }
 };

@@ -8,19 +8,27 @@
               <a href="/logout" class="col-3 btn btn-primary">Logout</a>
           </div>
           <div class="mt-5">
-            <h2>Add a post</h2>
-            <form action="/recipe/createRecipe" enctype="multipart/form-data" method="POST">
+            <h2>Add a pet</h2>
+            <form action="/pet/createPet" enctype="multipart/form-data" method="POST">
               <div class="mb-3">
                   <label for="name" class="form-label">Name</label>
                   <input type="text" class="form-control" id="name" name="name">
               </div>
               <div class="mb-3">
-                <label for="ingredients" class="form-label">Ingredients</label>
-                <textarea class="form-control" id="ingredients" name="ingredients"></textarea>
+                <label for="ingredients" class="form-label">petType</label>
+                <textarea class="form-control" id="petType" name="petType"></textarea>
               </div>
               <div class="mb-3">
-                <label for="directions" class="form-label">Directions</label>
-                <textarea class="form-control" id="directions" name="directions"></textarea>
+                <label for="ingredients" class="form-label">Breed</label>
+                <textarea class="form-control" id="breed" name="breed"></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="directions" class="form-label">Gender</label>
+                <textarea class="form-control" id="gender" name="gender"></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="directions" class="form-label">Vaccinated</label>
+                <textarea class="form-control" id="vaccinated" name="vaccinated"></textarea>
               </div>
               <div class="mb-3">
                 <label for="imgUpload" class="form-label">Image</label>
@@ -32,13 +40,13 @@
       </div>
       <div class="col-6">
         <ul class="row list-unstyled">
-        <% for(var i=0; i<recipes.length; i++) {%>
+        <% for(var i=0; i<pets.length; i++) {%>
           <li class="col-6 justify-content-between mt-5">
-            <a href="/recipe/<%= recipes[i]._id%>">
-              <h2><%= recipes[i].name%></h2>
-              <img class="img-fluid" src="<%= recipes[i].image%>">
-              <p><%= recipes[i].ingredients%></p>
-              <p><%= recipes[i].directions%></p>
+            <a href="/recipe/<%= pets[i]._id%>">
+              <h2><%= pets[i].name%></h2>
+              <img class="img-fluid" src="<%= pets[i].image%>">
+              <p><%= pets[i].breed%></p>
+              <p><%= pets[i].gender%></p>
             </a>
           </li>
         <% } %>
